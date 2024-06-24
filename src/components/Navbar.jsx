@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import LuxLogo from "../images/LuxLogo.jpg";
 import PhoneIcon from "../images/icons8-phone-64.png"; // Import the phone icon
 import "./Navbar.css"; // Import the custom CSS for hamburger menu
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    navigate('/');
+    setTimeout(() => {
+      const topElement = document.getElementById('top');
+      if (topElement) {
+        topElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); // Delay to ensure navigation completes before scrolling
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,27 +35,28 @@ function Navbar() {
 
   return (
     <>
-      <nav className="bg-black text-white font-sans">
+      <nav className="bg-black text-white font-sans fixed w-full z-50">
         <div className="container mx-auto flex justify-between items-center p-4">
           {/* Left side - Logo */}
-          <div className="flex items-center">
-            <img src={LuxLogo} alt="Logo" className="h-8 mr-4" />
+          <div className="flex items-center cursor-pointer">
+            <Link to="/" onClick={scrollToTop}>
+              <img src={LuxLogo} alt="Logo" className="h-8 mr-4" />
+            </Link>
           </div>
-
           {/* Center - Navigation Links (hidden if width < 1000px) */}
           <div className="hidden lg:flex space-x-6 items-center text-sm">
-            <a href="#home" className="hover:text-gray-300">HOME</a>
+            <Link to="/" className="hover:text-gray-300"> HOME </Link>
 
             <div
               className="relative group"
               onMouseEnter={() => handleMouseEnter("about-us")}
             >
-              <a href="#about-us" className="hover:text-gray-300 flex items-center">
+              <Link to="/about-us" className="hover:text-gray-300 flex items-center">
                 ABOUT US
                 <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
 
             <div
@@ -70,12 +83,12 @@ function Navbar() {
               </a>
             </div>
 
-            <a href="#quote" className="lg:block hidden px-4 py-2 border border-blue-500 rounded-full text-blue-500 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out">Get a Quote</a>
+            <a href="#quote" className="lg:block hidden px-4 py-2 border border-blue-500 rounded-full hover:bg-blue-400 bg-blue-500 text-white transition duration-300 ease-in-out">Get a Quote</a>
           </div>
 
           {/* Right side - Quote Button and Phone Number */}
           <div className="hidden md:flex items-center space-x-4 md:ml-auto lg:ml-0 lg:flex-grow-0 md:flex-grow justify-center text-sm">
-            <a href="#quote" className="lg:hidden px-4 py-2 border border-blue-500 rounded-full text-blue-500 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out">Get a Quote</a>
+            <a href="#quote" className="lg:hidden px-4 py-2 border border-blue-500 rounded-full hover:bg-blue-400 bg-blue-500 text-white transition duration-300 ease-in-out">Get a Quote</a>
             <div className="flex items-center">
               <img src={PhoneIcon} alt="Phone" className="h-6 mr-2" />
               <span className="text-xl">1800 202 930</span>
