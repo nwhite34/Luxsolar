@@ -13,11 +13,11 @@ function Navbar() {
   const scrollToTop = () => {
     navigate('/');
     setTimeout(() => {
-      const topElement = document.getElementById('top');
-      if (topElement) {
-        topElement.scrollIntoView({ behavior: 'smooth' });
+      const homeTop = document.getElementById('home-top');
+      if (homeTop) {
+        homeTop.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }, 100); // Delay to ensure navigation completes before scrolling
+    }, 100);
   };
 
   const toggleMenu = () => {
@@ -48,8 +48,9 @@ function Navbar() {
             <Link to="/" className="hover:text-gray-300"> HOME </Link>
 
             <div
-              className="relative group"
+              className={`relative group ${activeSection === "about-us" && (isHovering || activeSection === "about-us") ? "overline" : ""}`}
               onMouseEnter={() => handleMouseEnter("about-us")}
+              onMouseLeave={handleMouseLeave}
             >
               <Link to="/about-us" className="hover:text-gray-300 flex items-center">
                 ABOUT US
@@ -60,8 +61,9 @@ function Navbar() {
             </div>
 
             <div
-              className="relative group"
+              className={`relative group ${activeSection === "services" && (isHovering || activeSection === "services") ? "overline" : ""}`}
               onMouseEnter={() => handleMouseEnter("services")}
+              onMouseLeave={handleMouseLeave}
             >
               <a href="#services" className="hover:text-gray-300 flex items-center">
                 SERVICES
@@ -72,8 +74,9 @@ function Navbar() {
             </div>
 
             <div
-              className="relative group"
+              className={`relative group ${activeSection === "products" && (isHovering || activeSection === "products") ? "overline" : ""}`}
               onMouseEnter={() => handleMouseEnter("products")}
+              onMouseLeave={handleMouseLeave}
             >
               <a href="#products" className="hover:text-gray-300 flex items-center">
                 PRODUCTS
@@ -106,11 +109,14 @@ function Navbar() {
         </div>
 
         {/* Display section under the navbar */}
-        {(activeSection && isHovering) && (
+        {(activeSection && (isHovering || activeSection)) && (
           <div
             className="bg-black text-white p-4 w-full absolute z-40"
             onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={handleMouseLeave}
+            onMouseLeave={() => {
+              handleMouseLeave();
+              setActiveSection(null);
+            }}
           >
             <div className="container mx-auto flex justify-around">
               {activeSection === "about-us" && (
@@ -154,57 +160,54 @@ function Navbar() {
                     <a href="#residential-ev-charging" className="block hover:text-blue-500">Electric Vehicle Charging</a>
                   </div>
                   <div className="text-left text-gray-300 p-4">
-                    <h3 className="font-bold text-lg mb-2 text-blue-500">SOLAR SERVICING</h3>
-                    <a href="#solar-panel-cleaning" className="block hover:text-blue-500">Solar Panel Cleaning</a>
-                    <a href="#solar-bird-proofing" className="block hover:text-blue-500">Solar Panel Bird Proofing</a>
-                    <a href="#solar-inverter-repair" className="block hover:text-blue-500">Solar Inverter Repair</a>
-                    <a href="#all-services" className="block hover:text-blue-500">All Services</a>
+                    <h3 className="font-bold text-lg mb-2 text-blue-500">BATTERY STORAGE</h3>
+                    <a href="#battery-storage-info" className="block hover:text-blue-500">Why Battery Storage?</a>
+                    <a href="#battery-storage-brands" className="block hover:text-blue-500">Battery Brands</a>
+                    <a href="#battery-storage-faqs" className="block hover:text-blue-500">Battery FAQs</a>
                   </div>
                 </>
               )}
               {activeSection === "products" && (
                 <>
                   <div className="text-left text-gray-300 p-4">
-                    <h3 className="font-bold text-lg mb-2 text-blue-500">SOLAR PRODUCTS</h3>
-                    <a href="#solar-panels" className="block hover:text-blue-500">Solar Panels</a>
-                    <a href="#solar-batteries" className="block hover:text-blue-500">Solar Batteries</a>
-                    <a href="#solar-inverters" className="block hover:text-blue-500">Solar Inverters</a>
-                    <a href="#solar-accessories" className="block hover:text-blue-500">Solar Accessories</a>
+                    <h3 className="font-bold text-lg mb-2 text-blue-500">SOLAR PANELS</h3>
+                    <a href="#solar-panels-brands" className="block hover:text-blue-500">Brands</a>
+                    <a href="#solar-panels-info" className="block hover:text-blue-500">Why Solar Panels?</a>
+                    <a href="#solar-panels-faqs" className="block hover:text-blue-500">FAQs</a>
                   </div>
                   <div className="text-left text-gray-300 p-4">
-                    <h3 className="font-bold text-lg mb-2 text-blue-500">ENERGY PRODUCTS</h3>
-                    <a href="#energy-storage" className="block hover:text-blue-500">Energy Storage</a>
-                    <a href="#energy-management" className="block hover:text-blue-500">Energy Management</a>
-                    <a href="#ev-charging" className="block hover:text-blue-500">EV Charging</a>
+                    <h3 className="font-bold text-lg mb-2 text-blue-500">INVERTERS</h3>
+                    <a href="#inverters-brands" className="block hover:text-blue-500">Brands</a>
+                    <a href="#inverters-info" className="block hover:text-blue-500">Why Inverters?</a>
+                    <a href="#inverters-faqs" className="block hover:text-blue-500">FAQs</a>
                   </div>
                   <div className="text-left text-gray-300 p-4">
-                    <h3 className="font-bold text-lg mb-2 text-blue-500">ACCESSORIES</h3>
-                    <a href="#solar-mounting" className="block hover:text-blue-500">Solar Mounting</a>
-                    <a href="#monitoring-systems" className="block hover:text-blue-500">Monitoring Systems</a>
-                    <a href="#solar-cables" className="block hover:text-blue-500">Solar Cables</a>
+                    <h3 className="font-bold text-lg mb-2 text-blue-500">BATTERY STORAGE</h3>
+                    <a href="#battery-storage-brands" className="block hover:text-blue-500">Brands</a>
+                    <a href="#battery-storage-info" className="block hover:text-blue-500">Why Battery Storage?</a>
+                    <a href="#battery-storage-faqs" className="block hover:text-blue-500">FAQs</a>
                   </div>
                 </>
               )}
             </div>
           </div>
         )}
-      </nav>
 
-      {/* Side Navigation Bar */}
-      <div
-        className={`fixed top-0 right-0 w-full h-full bg-black text-white transform transition-transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } w-64 p-6 z-40`}
-      >
-        <button onClick={toggleMenu} className="absolute top-4 right-4 text-white z-50"></button>
-        <nav className="mt-8 text-left">
-          <a href="#home" className="block px-4 py-2 hover:bg-gray-700 text-sm">HOME</a>
-          <a href="#about-us" className="block px-4 py-2 hover:bg-gray-700 text-sm">ABOUT US</a>
-          <a href="#services" className="block px-4 py-2 hover:bg-gray-700 text-sm">SERVICES</a>
-          <a href="#products" className="block px-4 py-2 hover:bg-gray-700 text-sm">PRODUCTS</a>
-          <a href="#learning-centre" className="block px-4 py-2 hover:bg-gray-700 text-sm">LEARNING CENTRE</a>
-        </nav>
-      </div>
+        {/* Mobile Menu */}
+        {isOpen && (
+          <div className="bg-black text-white lg:hidden p-4 absolute top-0 left-0 right-0 z-40 flex flex-col items-center space-y-4 text-center">
+            <Link to="/" onClick={scrollToTop} className="text-lg"> HOME </Link>
+            <Link to="/about-us" className="text-lg"> ABOUT US </Link>
+            <a href="#services" className="text-lg"> SERVICES </a>
+            <a href="#products" className="text-lg"> PRODUCTS </a>
+            <a href="#quote" className="px-4 py-2 border border-blue-500 rounded-full hover:bg-blue-400 bg-blue-500 text-white transition duration-300 ease-in-out">Get a Quote</a>
+            <div className="flex items-center">
+              <img src={PhoneIcon} alt="Phone" className="h-6 mr-2" />
+              <span className="text-xl">1800 202 930</span>
+            </div>
+          </div>
+        )}
+      </nav>
     </>
   );
 }

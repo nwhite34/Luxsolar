@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import HomePageSectionOne from "../pages/HomePageSectionOne";
-import HomePageSectionTwo from "../pages/HomePageSectionTwo";
-import HomePageSectionThree from "../pages/HomePageSectionThree";
-
+import HomePageSectionOne from "./HomePageSectionOne";
+import HomePageSectionTwo from "./HomePageSectionTwo";
+import HomePageSectionThree from "./HomePageSectionThree";
+import Footer from "../Footer";
 
 function HomePage() {
   useEffect(() => {
@@ -23,7 +23,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="w-full h-full snap-y snap-mandatory overflow-scroll md:scroll-snap-none no-scrollbar">
+    <div id="home-top" className="snap-y snap-mandatory h-screen overflow-scroll no-scrollbar">
       <div className="snap-start w-full h-screen">
         <HomePageSectionOne />
       </div>
@@ -31,8 +31,11 @@ function HomePage() {
         <HomePageSectionTwo />
       </div>
       <div className="snap-start w-full h-screen">
-      <HomePageSectionThree />
-    </div>
+        <HomePageSectionThree />
+      </div>
+      <div className="snap-start w-full h-screen">
+        <Footer />
+      </div>
     </div>
   );
 }

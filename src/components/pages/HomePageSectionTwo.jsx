@@ -2,7 +2,7 @@ import React from "react";
 
 function HomePageSectionTwo() {
   return (
-    <div className="relative w-full h-screen bg-black text-white flex flex-col items-center justify-center">
+    <div id="HomePageSectionTwo" className="relative w-full h-screen bg-black text-white flex flex-col items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-transparent opacity-70"></div>
       <div className="relative z-10 w-full max-w-3xl text-center px-6">
         <h2 className="text-lg font-light uppercase">Welcome to</h2>

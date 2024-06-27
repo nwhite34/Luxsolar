@@ -1,11 +1,20 @@
 import React from "react";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
+
 
 function AboutPage() {
   return (
-    <div className="about-page">
-      <h1>About Us</h1>
-      <p>This is the about page.</p>
+    <>
+    <Navbar />
+    <div id="top" className="snap-y snap-mandatory h-screen overflow-scroll no-scrollbar">
+      <div className="snap-start w-full h-screen">
+      </div>
+      <div className="snap-start w-full h-screen">
+        <Footer />
+      </div>
     </div>
+  </>
   );
 }
 

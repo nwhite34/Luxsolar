@@ -5,7 +5,6 @@ nav {
   font-family: sans-serif;
 }
 
-/* Hamburger Menu */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -52,10 +51,36 @@ nav {
   top: 10px;
 }
 
+/* Active Link Underline for Side Nav */
+.underline {
+  border-bottom: 1px solid #1e40af; /* Blue underline */
+}
+
+/* Hover Line Above */
+.relative.group:hover::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #1e40af; /* Blue line */
+}
+
 /* Phone Icon */
 .phone-icon {
   margin-right: 8px;
   font-size: 1.25rem; /* Adjust the size as needed */
   vertical-align: middle;
   color: white !important; /* Ensure the icon is white */
+}
+/* CSS for the overline */
+.overline::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #1e40af; /* Blue line */
 }
