@@ -1,5 +1,5 @@
 import React from "react";
-import video from '../../videos/headervideo.mp4'; // Make sure the path is correct
+import video from '../../../videos/headervideo.mp4'; // Make sure the path is correct
 import './HomePageSectionOne.css';
 
 function HomePageSectionOne() {

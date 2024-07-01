@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import HomePageSectionOne from "./HomePageSectionOne";
 import HomePageSectionTwo from "./HomePageSectionTwo";
 import HomePageSectionThree from "./HomePageSectionThree";
-import Footer from "../Footer";
+import Footer from "../../Footer";
 
 function HomePage() {
   useEffect(() => {

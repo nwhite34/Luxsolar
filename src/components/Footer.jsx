@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-blue-900 text-white h-screen flex flex-col justify-between py-16">
+    <div className="bg-blue-500 text-white h-screen flex flex-col justify-between py-16">
       <div className="container mx-auto px-4 flex-grow flex flex-col justify-center">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -45,7 +45,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-blue-900 py-4">
+      <div className="bg-blue-500 py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs">
           <div className="flex space-x-4 mb-4 md:mb-0">
             <span className="hover:underline">Privacy Policy</span>

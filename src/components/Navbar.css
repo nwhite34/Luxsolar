@@ -56,17 +56,6 @@ nav {
   border-bottom: 1px solid #1e40af; /* Blue underline */
 }
 
-/* Hover Line Above */
-.relative.group:hover::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #1e40af; /* Blue line */
-}
-
 /* Phone Icon */
 .phone-icon {
   margin-right: 8px;
@@ -74,13 +63,45 @@ nav {
   vertical-align: middle;
   color: white !important; /* Ensure the icon is white */
 }
+
 /* CSS for the overline */
-.overline::before {
+.overline {
+  color: #3B82F6;
+  position: relative;
+  padding-top: 0; /* Remove padding to avoid double lines */
+}
+
+.menu-link {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-link::after {
   content: "";
   position: absolute;
-  top: -2px;
   left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #1e40af; /* Blue line */
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #3b82f6; /* Tailwind's blue-500 */
+  transition: width 0.3s;
+}
+
+.menu-link:hover::after {
+  width: 100%;
+}
+
+.menu-link {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+.menu-link:hover::after, .menu-link.active-link::after {
+  width: 100%;
 }

@@ -6,11 +6,13 @@ module.exports = {
       fontFamily: {
         sans: ['Proxima Nova', 'sans-serif'],
       },
-      scrollbar: ['responsive']
+      // If you want to extend more theme settings, add them here
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      scrollbar: ['responsive'],
+    },
   },
   plugins: [
     function({ addUtilities }) {
@@ -24,6 +26,6 @@ module.exports = {
           display: 'none', /* Safari and Chrome */
         },
       }, ['responsive'])
-    }
+    },
   ],
 }
