@@ -11,10 +11,12 @@ function AboutPageSectionOne() {
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <div className="relative z-10 text-center text-white px-6">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Get a Quote</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">About Us</h1>
+        <h2 className="text-xl md:text-2xl text-blue-400 mb-2">
+          Explore our market-leading solar services
+        </h2>
         <p className="text-lg md:text-xl">
-          Get in touch to start your solar journey today with a local team of
-          service-obsessed experts
+          Discover how we're raising the roof on the Australian solar industry.
         </p>
       </div>
     </div>
